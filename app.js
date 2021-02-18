@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require ('cors');
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongourl = "mongodb://localhost:27017";
+const mongourl = "mongodb+srv://saumil:Saumil@123@cluster0.b3q57.mongodb.net/internship?retryWrites=true&w=majority";
 let db;
 
 app.use(cors())
@@ -95,7 +95,7 @@ db.collection('Orders').insert(req.body,(err,result) =>{
 })
 })
 //get all bookings
-app.post('/orders',(req,res) =>{
+app.get('/orders',(req,res) =>{
   db.collection('Orders').find({}).toArray((err,result) =>{
     if(err) throw err;
     res.send(result)
